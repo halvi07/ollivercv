@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olliver Halvorsen CV</title>
+    <style>
+        /* Previous CSS styles remain unchanged */
+        :root {
+            --primary: #0A192F;
+            --secondary: #007FFF;
+            --accent: #64FFDA;
+            --text: #333;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+            --section-bg: #F8FAFC;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .profile-section {
+            position: relative;
+        }
+
+        .profile-section::after {
+            content: '';
+            position: absolute;
+            right: -1.5rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--secondary), transparent);
+        }
+
+        .name-title {
+            margin-bottom: 2rem;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--section-bg);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .summary-section {
+            padding: 1rem 0;
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .skills-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category-title {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--section-bg);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--secondary);
+            color: var(--white);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .experience-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .experience-card {
+            padding: 1.5rem;
+            background: var(--section-bg);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--secondary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .achievement-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .achievement-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .education-card {
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .header, .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section::after {
+                display: none;
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <div class="name-title">
+                    <h1 class="name">Olliver Halvorsen</h1>
+                    <div class="title">Daglig Leder & Grunnlegger</div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>olliver@nordenhosting.no</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>45097525</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Åkrahamn, Karmøy, Rogaland</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <span>linkedin.com/olliverhalvorsen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-section">
+                <p class="summary-text">
+                    Ung og ambisiøs leder med erfaring fra både etablering og drift av egne virksomheter. For tiden studerer jeg Automasjon ved Åkrahamn Videregående Skole, samtidig som jeg driver Norden Hosting og jobber hos Elkjøp. Jeg har bred erfaring innen salg, kundeservice og teknologi, og har vist sterke entreprenørielle evner gjennom etablering av flere vellykkede virksomheter.
+                </p>
+            </div>
+        </header>
+
+        <div class="main-grid">
+            <div class="skills-section">
+                <h2 class="section-title">Ekspertise</h2>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Kjernekompetanse</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Løsningssalg</span>
+                        <span class="skill-tag">Forretningsutvikling</span>
+                        <span class="skill-tag">Kundeservice</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Tekniske Ferdigheter</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Automasjon</span>
+                        <span class="skill-tag">Elektro</span>
+                        <span class="skill-tag">Datateknologi</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Lederegenskaper</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Bedriftsledelse</span>
+                        <span class="skill-tag">Prosjektledelse</span>
+                        <span class="skill-tag">Teamledelse</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <section class="experience-section">
+                    <h2 class="section-title">Erfaring</h2>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Daglig leder & Grunnlegger</h3>
+                                <div class="company">Norden Hosting</div>
+                            </div>
+                            <span class="date">september 2024 - Nå</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li class="achievement-item">Etablert og leder hosting-selskap</li>
+                            <li class="achievement-item">Ansvar for strategisk utvikling og daglig drift</li>
+                            <li class="achievement-item">Kundeservice og teknisk support</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Selger (Tele) & KnowHow Support</h3>
+                                <div class="company">Elkjøp Norge AS</div>
+                            </div>
+                            <span class="date">september 2023 - Nå</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li class="achievement-item">Spesialisert på telesalg og kundeservice</li>
+                            <li class="achievement-item">Teknisk support og problemløsning</li>
+                            <li class="achievement-item">Salg og kundeveiledning</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Daglig leder & Grunnlegger</h3>
+                                <div class="company">Mobico UB</div>
+                            </div>
+                            <span class="date">april 2024 - november 2024</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li class="achievement-item">Etablerte og ledet ungdomsbedrift</li>
+                            <li class="achievement-item">Ansvar for forretningsutvikling og strategi</li>
+                            <li class="achievement-item">Drift og kundeoppfølging</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="section-title">Utdanning</h2>
+
+                    <div class="education-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">VG2 Automasjon</h3>
+                                <div class="company">Åkrehamn Videregående Skole</div>
+                            </div>
+                            <span class="date">2024 - 2025</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li class="achievement-item">Fordypning i automasjonssystemer og teknologi</li>
+                            <li class="achievement-item">Praktisk erfaring med industriell automasjon</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">VG1 Elektro & Datateknologi</h3>
+                                <div class="company">Åkrehamn Videregående Skole</div>
+                            </div>
+                            <span class="date">2023 - 2024</span>
+                        </div>
+                        <ul class="achievement-list">
+                            <li class="achievement-item">Grunnleggende elektro- og datateknisk kompetanse</li>
+                            <li class="achievement-item">Praktisk erfaring med elektriske systemer og datateknologi</li>
+                            <li class="achievement-item">Fokus på teknisk forståelse og praktisk anvendelse</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
