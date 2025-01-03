@@ -269,6 +269,16 @@
             border-color: var(--secondary);
         }
 
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--secondary);
+            box-shadow: var(--card-shadow);
+        }
+
         @media (max-width: 1024px) {
             .header, .main-grid {
                 grid-template-columns: 1fr;
@@ -302,6 +312,7 @@
     <div class="container">
         <header class="header">
             <div class="profile-section">
+                <img src="logo.jpg" alt="Olliver Halvorsen" class="profile-image">
                 <div class="name-title">
                     <h1 class="name">Olliver Halvorsen</h1>
                     <div class="title">Daglig Leder & Grunnlegger</div>
